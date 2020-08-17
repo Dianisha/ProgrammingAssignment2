@@ -1,15 +1,30 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+
+## Esta es una función que crea una matriz especial que puede guardar en caché su inversa
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  invr <- NULL
+  set <- function(y) {
+    x <<- y
+    invr <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(inverse) invr <<- inverse
+  getinverse <- function() invr
+  list(set=set, get=get, setinverse=setinverse, getinverse = getinverse)
 }
 
 
-## Write a short comment describing this function
+## Esta función devuelve la inversa de una matriz cuadrada invertible
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  invr <= x $ getinverse ()
+  if (! is.null (invr)) {
+    message ("Getting Cached Data: -")
+    return (invr)
+  }
+  matrx <- x $ get ()
+  invr <- solve (matrx, ...)
+  x $ setinverse (invr)
+  invr
 }
